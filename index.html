@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HARSH AGARWAL Data Scientist · ML Engineer · Cybersecurity Specialist</title>
+<meta name="description" content="Portfolio of Harsh Agarwal Data Scientist, ML Engineer, and Cybersecurity Specialist building intelligent, secure systems at the intersection of data, AI, and adversarial thinking."/>
+<meta property="og:title" content="Harsh Agarwal Data Scientist · ML Engineer · Cybersecurity"/>
+<meta property="og:description" content="My Portfolio which includes the domain -> Data Science, Machine Learning, Cybersecurity, and AI Engineering."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="cursor-field" id="cursorField" aria-hidden="true"></div>
+<canvas id="fieldCanvas" aria-hidden="true"></canvas>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+  <span class="theme-icon-dark">◑</span>
+  <span class="theme-icon-light">◐</span>
+</button>
+
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="Home">
+      <span class="logo-bracket">[</span><span class="logo-name">HA</span><span class="logo-bracket">]</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#certifications" class="nav-link">Certs</a></li>
+      <li><a href="#achievements" class="nav-link">Achievements</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="https://docs.google.com/document/d/1MoRke--DYmfC6NjNRnBnD8CcsIOeCrOB/edit?usp=sharing&ouid=101178303394384609336&rtpof=true&sd=true" class="btn btn-sm nav-cta" download>↓ Resume</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul role="list">
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#experience" class="mobile-link">Experience</a></li>
+      <li><a href="#certifications" class="mobile-link">Certifications</a></li>
+      <li><a href="#achievements" class="mobile-link">Achievements</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="hero" aria-label="Introduction">
+  <div class="hero-grid-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-badge scan-reveal">
+      <span class="badge-dot"></span>
+      <span>Open to Internship / Full Time Job · 2026</span>
+    </div>
+    <h1 class="hero-name scan-reveal">
+      <span class="hero-name-line" id="heroName">HARSH AGARWAL</span>
+    </h1>
+    <p class="hero-title scan-reveal">
+      Data Scientist <span class="divider">·</span> ML Engineer <span class="divider">·</span> Cybersecurity Specialist
+    </p>
+    <p class="hero-tagline scan-reveal">
+      I build intelligent systems that are both <em>powerful</em> and <em>secure</em> <br class="br-desktop"/>
+      operating at the intersection of data, machine learning, and adversarial thinking.
+    </p>
+    <div class="hero-ctas scan-reveal">
+      <a href="#projects" class="btn btn-primary">Explore Projects</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      <a href="https://docs.google.com/document/d/1MoRke--DYmfC6NjNRnBnD8CcsIOeCrOB/edit?usp=sharing&ouid=101178303394384609336&rtpof=true&sd=true" class="btn btn-outline" download>↓ Download CV</a>
+    </div>
+    <div class="hero-stats scan-reveal">
+      <div class="stat">
+        <span class="stat-num" data-target="3">0</span><span class="stat-unit">+</span>
+        <span class="stat-label">Years Building</span>
+      </div>
+      <div class="stat-sep" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="20">0</span><span class="stat-unit">+</span>
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="stat-sep" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="8">0</span><span class="stat-unit">+</span>
+        <span class="stat-label">Certifications</span>
+      </div>
+      <div class="stat-sep" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="4">0</span>
+        <span class="stat-label">Domains</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span></span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="section-label scan-reveal">01 / About</div>
+    <div class="about-grid">
+      <div class="about-left scan-reveal">
+        <h2 id="about-heading" class="section-heading">
+          Where data,<br/>intelligence,<br/>and security <em>converge</em>.
+        </h2>
+        <div class="about-photo-wrap">
+          <div class="about-photo-frame energy-card">
+            <img src="my_pic.jpeg" alt="Harsh Agarwal — Data Scientist & ML Engineer" class="about-photo" loading="lazy"/>
+            <div class="photo-accent-ring"></div>
+            <div class="photo-corner photo-corner-tl"></div>
+            <div class="photo-corner photo-corner-br"></div>
+            <div class="energy-border-trail" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-right">
+        <p class="about-body scan-reveal">
+          I'm a cross domain technologist with deep roots in <strong>Data Science</strong>, <strong>Machine Learning</strong>, and <strong>Cybersecurity</strong> three fields that increasingly demand fluency in each other. My work sits at the boundary:- building models that don't just predict, but remain robust under adversarial conditions; writing code that doesn't just run, but runs safely.
+        </p>
+        <p class="about-body scan-reveal">
+          I approach every problem with an engineer's precision and a researcher's curiosity. Whether it's training a neural network, probing a system's attack surface, or automating an intelligence pipeline I bring the same discipline:- understand the fundamentals, build with rigor, iterate fast.
+        </p>
+        <p class="about-body scan-reveal">
+          Currently pursuing opportunities in ML engineering, security research, and applied AI where technical depth creates real impact.
+        </p>
+        <div class="about-tags scan-reveal">
+          <span class="tag">Analytical Mindset</span>
+          <span class="tag">Security First Thinking</span>
+          <span class="tag">Research Oriented</span>
+          <span class="tag">System Builder</span>
+          <span class="tag">Architecture First</span>
+          <span class="tag">High Agency</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="skills" aria-labelledby="skills-heading">
+  <div class="container">
+    <div class="section-label scan-reveal">02 / Skills Matrix</div>
+    <h2 id="skills-heading" class="section-heading centered scan-reveal">Technical Capabilities</h2>
+    <p class="section-sub centered scan-reveal">A structured overview of my technical toolkit across domains...</p>
+    <div class="skills-grid scan-reveal">
+      <div class="skill-group energy-card">
+        <div class="skill-group-header"><span class="skill-icon">⌨</span><h3>Languages</h3></div>
+        <div class="skill-items">
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Python</span><span class="skill-level">Expert</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>SQL</span><span class="skill-level">Advanced</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Bash / Shell</span><span class="skill-level">Advanced</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>JavaScript</span><span class="skill-level">Intermediate</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>C / C++</span><span class="skill-level">Advanced</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+          </div>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </div>
+      <div class="skill-group energy-card">
+        <div class="skill-group-header"><span class="skill-icon">◈</span><h3>Data Science / ML</h3></div>
+        <div class="skill-chips">
+          <span class="chip">NumPy</span><span class="chip">Pandas</span><span class="chip">Scikit learn</span>
+          <span class="chip">TensorFlow</span><span class="chip">PyTorch</span><span class="chip">XGBoost</span>
+          <span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Plotly</span>
+          <span class="chip">OpenCV</span><span class="chip">HuggingFace</span><span class="chip">LangChain</span>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </div>
+      <div class="skill-group energy-card">
+        <div class="skill-group-header"><span class="skill-icon">⬡</span><h3>Cybersecurity</h3></div>
+        <div class="skill-chips">
+          <span class="chip chip-sec">Network Analysis</span><span class="chip chip-sec">Pen Testing</span>
+          <span class="chip chip-sec">Wireshark</span><span class="chip chip-sec">Nmap</span>
+          <span class="chip chip-sec">Metasploit</span><span class="chip chip-sec">Burp Suite</span>
+          <span class="chip chip-sec">OSINT</span><span class="chip chip-sec">CTF Challenges</span>
+          <span class="chip chip-sec">SIEM / SOC</span><span class="chip chip-sec">Threat Modeling</span>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </div>
+      <div class="skill-group energy-card">
+        <div class="skill-group-header"><span class="skill-icon">✦</span><h3>AI / Automation</h3></div>
+        <div class="skill-chips">
+          <span class="chip chip-ai">LLM Prompting</span><span class="chip chip-ai">RAG Systems</span>
+          <span class="chip chip-ai">Agents / Workflows</span><span class="chip chip-ai">OpenAI API</span>
+          <span class="chip chip-ai">Anthropic API</span><span class="chip chip-ai">Vector DBs</span>
+          <span class="chip chip-ai">MLflow</span><span class="chip chip-ai">Streamlit</span>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </div>
+      <div class="skill-group energy-card">
+        <div class="skill-group-header"><span class="skill-icon">◻</span><h3>Tools & Platforms</h3></div>
+        <div class="skill-chips">
+          <span class="chip">Docker</span><span class="chip">Git / GitHub</span>
+          <span class="chip">Linux</span><span class="chip">VS Code</span>
+          <span class="chip">Jupyter</span><span class="chip">Google Colab</span>
+          <span class="chip">AWS (basics)</span><span class="chip">Kali Linux</span>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </div>
+      <div class="skill-group energy-card">
+        <div class="skill-group-header"><span class="skill-icon">⊠</span><h3>Databases</h3></div>
+        <div class="skill-chips">
+          <span class="chip">PostgreSQL</span><span class="chip">MySQL</span>
+          <span class="chip">MongoDB</span><span class="chip">SQLite</span>
+          <span class="chip">Redis (basics)</span><span class="chip">Pinecone</span>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects" aria-labelledby="projects-heading">
+  <div class="container">
+    <div class="section-label scan-reveal">03 / Projects</div>
+    <h2 id="projects-heading" class="section-heading centered scan-reveal">Selected Work</h2>
+    <p class="section-sub centered scan-reveal">Real systems. Real impact. Built with rigor.</p>
+    <div class="project-filters scan-reveal" role="group" aria-label="Filter projects">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ml">Machine Learning</button>
+      <button class="filter-btn" data-filter="security">Cybersecurity</button>
+      <button class="filter-btn" data-filter="data">Data Science</button>
+      <button class="filter-btn" data-filter="ai">AI / LLM</button>
+    </div>
+    <div class="projects-grid" id="projectsGrid">
+
+      <article class="project-card energy-card scan-reveal" data-category="ml security" tabindex="0">
+        <div class="project-card-header">
+          <div class="project-tags"><span class="ptag ptag-ml">ML</span><span class="ptag ptag-sec">Security</span></div>
+          <div class="project-links"><a href="#" class="icon-link" aria-label="GitHub" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a></div>
+        </div>
+        <div class="project-main">
+          <h3 class="project-title">Adversarial ML Intrusion Detection</h3>
+          <p class="project-domain">Network Security · Machine Learning</p>
+          <p class="project-desc">Neural network-based IDS trained on the CICIDS dataset, evaluated against adversarial examples via FGSM and PGD attacks. Achieved 97.2% detection accuracy with adversarial training improvements.</p>
+          <div class="project-stack"><span>Python</span><span>PyTorch</span><span>Scikit learn</span><span>Wireshark</span></div>
+          <div class="project-impact"><span class="impact-dot"></span>97.2% detection accuracy · 40% reduction in adversarial vulnerability</div>
+        </div>
+        <div class="project-overlay" aria-hidden="true">
+          <div class="overlay-content">
+            <p class="overlay-label">// system.module</p>
+            <p class="overlay-stat"><span>Model</span><span>Neural IDS · CICIDS</span></p>
+            <p class="overlay-stat"><span>Attacks</span><span>FGSM · PGD</span></p>
+            <p class="overlay-stat"><span>Accuracy</span><span>97.2%</span></p>
+            <p class="overlay-stat"><span>Vuln Reduction</span><span>−40%</span></p>
+          </div>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </article>
+
+      <article class="project-card energy-card scan-reveal" data-category="ai data" tabindex="0">
+        <div class="project-card-header">
+          <div class="project-tags"><span class="ptag ptag-ai">AI / LLM</span><span class="ptag ptag-data">Data</span></div>
+          <div class="project-links"><a href="#" class="icon-link" aria-label="GitHub" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a></div>
+        </div>
+        <div class="project-main">
+          <h3 class="project-title">Threat Intelligence RAG System</h3>
+          <p class="project-domain">AI · Cybersecurity Intelligence</p>
+          <p class="project-desc">RAG pipeline ingesting CVE databases, threat feeds, and security bulletins. Enables natural language threat queries returning structured, cited responses with contextual risk scoring.</p>
+          <div class="project-stack"><span>LangChain</span><span>Pinecone</span><span>OpenAI API</span><span>FastAPI</span></div>
+          <div class="project-impact"><span class="impact-dot"></span>Reduced analyst query time by ~60% in internal testing</div>
+        </div>
+        <div class="project-overlay" aria-hidden="true">
+          <div class="overlay-content">
+            <p class="overlay-label">// system.module</p>
+            <p class="overlay-stat"><span>Pipeline</span><span>RAG · LangChain</span></p>
+            <p class="overlay-stat"><span>Store</span><span>Pinecone Vector DB</span></p>
+            <p class="overlay-stat"><span>Sources</span><span>CVE · Threat Feeds</span></p>
+            <p class="overlay-stat"><span>Speed Gain</span><span>~60% faster</span></p>
+          </div>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </article>
+
+      <article class="project-card energy-card scan-reveal" data-category="data ml" tabindex="0">
+        <div class="project-card-header">
+          <div class="project-tags"><span class="ptag ptag-data">Data</span><span class="ptag ptag-ml">ML</span></div>
+          <div class="project-links"><a href="#" class="icon-link" aria-label="GitHub" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a></div>
+        </div>
+        <div class="project-main">
+          <h3 class="project-title">Predictive Analytics Dashboard</h3>
+          <p class="project-domain">Data Science · Business Intelligence</p>
+          <p class="project-desc">End to end analytics pipeline on real-world sales data. Ensemble models (XGBoost and Random Forest) with a Streamlit dashboard featuring live predictions, trend analysis, and exportable reports.</p>
+          <div class="project-stack"><span>Python</span><span>XGBoost</span><span>Pandas</span><span>Streamlit</span><span>Plotly</span></div>
+          <div class="project-impact"><span class="impact-dot"></span>89.4% forecast accuracy · Deployed as internal tool</div>
+        </div>
+        <div class="project-overlay" aria-hidden="true">
+          <div class="overlay-content">
+            <p class="overlay-label">// system.module</p>
+            <p class="overlay-stat"><span>Models</span><span>XGBoost · RF Ensemble</span></p>
+            <p class="overlay-stat"><span>Interface</span><span>Streamlit Dashboard</span></p>
+            <p class="overlay-stat"><span>Accuracy</span><span>89.4%</span></p>
+            <p class="overlay-stat"><span>Status</span><span>Deployed</span></p>
+          </div>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </article>
+
+      <article class="project-card energy-card scan-reveal" data-category="security" tabindex="0">
+        <div class="project-card-header">
+          <div class="project-tags"><span class="ptag ptag-sec">Security</span></div>
+          <div class="project-links"><a href="#" class="icon-link" aria-label="GitHub" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a></div>
+        </div>
+        <div class="project-main">
+          <h3 class="project-title">Automated OSINT Recon Framework</h3>
+          <p class="project-domain">OSINT · Penetration Testing</p>
+          <p class="project-desc">Custom Python framework orchestrating passive recon across Shodan, WHOIS, certificate transparency logs, and social platforms aggregating into structured threat profiles for red team engagements.</p>
+          <div class="project-stack"><span>Python</span><span>Shodan API</span><span>Requests</span><span>SQLite</span><span>Docker</span></div>
+          <div class="project-impact"><span class="impact-dot"></span>Automated 12+ manual tasks · Used in 3 CTF competitions</div>
+        </div>
+        <div class="project-overlay" aria-hidden="true">
+          <div class="overlay-content">
+            <p class="overlay-label">// system.module</p>
+            <p class="overlay-stat"><span>Sources</span><span>Shodan · WHOIS · CT</span></p>
+            <p class="overlay-stat"><span>Output</span><span>Threat Profile</span></p>
+            <p class="overlay-stat"><span>Automated</span><span>12+ tasks</span></p>
+            <p class="overlay-stat"><span>CTF Use</span><span>3 competitions</span></p>
+          </div>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </article>
+
+      <article class="project-card energy-card scan-reveal" data-category="ai ml" tabindex="0">
+        <div class="project-card-header">
+          <div class="project-tags"><span class="ptag ptag-ai">AI</span><span class="ptag ptag-ml">ML</span></div>
+          <div class="project-links"><a href="#" class="icon-link" aria-label="GitHub" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a></div>
+        </div>
+        <div class="project-main">
+          <h3 class="project-title">NLP Powered Phishing Classifier</h3>
+          <p class="project-domain">NLP · Email Security</p>
+          <p class="project-desc">Fine tuned BERT on a curated phishing email dataset. Lightweight FastAPI inference API with enterprise grade performance and extremely low false positive rates.</p>
+          <div class="project-stack"><span>PyTorch</span><span>HuggingFace</span><span>FastAPI</span><span>Docker</span></div>
+          <div class="project-impact"><span class="impact-dot"></span>98.1% precision · 0.6% false positive rate</div>
+        </div>
+        <div class="project-overlay" aria-hidden="true">
+          <div class="overlay-content">
+            <p class="overlay-label">// system.module</p>
+            <p class="overlay-stat"><span>Architecture</span><span>BERT Fine-tuned</span></p>
+            <p class="overlay-stat"><span>API</span><span>FastAPI · Docker</span></p>
+            <p class="overlay-stat"><span>Precision</span><span>98.1%</span></p>
+            <p class="overlay-stat"><span>FP Rate</span><span>0.6%</span></p>
+          </div>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </article>
+
+      <article class="project-card energy-card scan-reveal" data-category="data ai" tabindex="0">
+        <div class="project-card-header">
+          <div class="project-tags"><span class="ptag ptag-data">Data</span><span class="ptag ptag-ai">AI</span></div>
+          <div class="project-links"><a href="#" class="icon-link" aria-label="GitHub" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a></div>
+        </div>
+        <div class="project-main">
+          <h3 class="project-title">AI Augmented Research Assistant</h3>
+          <p class="project-domain">AI Agents · Productivity</p>
+          <p class="project-desc">Multi agent system that autonomously searches, summarizes, and cross references academic papers. Features citation graphs, topic clustering, and an interactive Streamlit query interface.</p>
+          <div class="project-stack"><span>LangChain</span><span>Anthropic API</span><span>FAISS</span><span>Streamlit</span></div>
+          <div class="project-impact"><span class="impact-dot"></span>Processes 500+ papers/hour · 3× faster literature review</div>
+        </div>
+        <div class="project-overlay" aria-hidden="true">
+          <div class="overlay-content">
+            <p class="overlay-label">// system.module</p>
+            <p class="overlay-stat"><span>Agents</span><span>Multi Agent LangChain</span></p>
+            <p class="overlay-stat"><span>Memory</span><span>FAISS Vector Store</span></p>
+            <p class="overlay-stat"><span>Throughput</span><span>500+ papers/hr</span></p>
+            <p class="overlay-stat"><span>Speed</span><span>3× review speed</span></p>
+          </div>
+        </div>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="experience" aria-labelledby="exp-heading">
+  <div class="container">
+    <div class="section-label scan-reveal">04 / Experience</div>
+    <h2 id="exp-heading" class="section-heading scan-reveal">Work & Internships</h2>
+    <div class="timeline">
+      <div class="timeline-item scan-reveal">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content energy-card">
+          <div class="timeline-meta">
+            <span class="timeline-date">Jun 2024 – Aug 2024</span>
+            <span class="timeline-type">Internship</span>
+          </div>
+          <h3 class="timeline-role">Machine Learning Intern</h3>
+          <p class="timeline-company">ChromaAI and Labs · Remote</p>
+          <ul class="timeline-bullets">
+            <li>Designed and trained anomaly detection models on time series operational data, reducing false alerts by 34%</li>
+            <li>Built an automated feature engineering pipeline that cut preprocessing time by 60%</li>
+            <li>Collaborated with the security team to integrate ML outputs into their SIEM dashboard</li>
+            <li>Presented weekly findings and model evaluations to senior engineering staff</li>
+          </ul>
+          <div class="timeline-stack"><span>Python</span><span>Scikit learn</span><span>PostgreSQL</span><span>Docker</span></div>
+          <div class="energy-border-trail" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="timeline-item scan-reveal">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content energy-card">
+          <div class="timeline-meta">
+            <span class="timeline-date">Jan 2024 – May 2024</span>
+            <span class="timeline-type">Freelance</span>
+          </div>
+          <h3 class="timeline-role">Data Science Consultant</h3>
+          <p class="timeline-company">Independent / Various Clients</p>
+          <ul class="timeline-bullets">
+            <li>Delivered end-to-end ML pipelines for 3 SME clients in retail and fintech verticals</li>
+            <li>Built customer churn prediction models achieving 91% recall on holdout data</li>
+            <li>Automated reporting workflows saving approximately 15 hours/week per client</li>
+          </ul>
+          <div class="timeline-stack"><span>Python</span><span>XGBoost</span><span>Tableau</span><span>Streamlit</span></div>
+          <div class="energy-border-trail" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="timeline-item scan-reveal">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content energy-card">
+          <div class="timeline-meta">
+            <span class="timeline-date">Sep 2023 – Dec 2023</span>
+            <span class="timeline-type">Internship</span>
+          </div>
+          <h3 class="timeline-role">Cybersecurity Research Intern</h3>
+          <p class="timeline-company">Simons Foundation · Remote</p>
+          <ul class="timeline-bullets">
+            <li>Conducted vulnerability assessments on internal web applications, identifying 7 critical CVEs</li>
+            <li>Developed automated scripts for network scanning and report generation, saving 8 hours/week</li>
+            <li>Contributed to a research paper on adversarial machine learning in network security contexts</li>
+          </ul>
+          <div class="timeline-stack"><span>Nmap</span><span>Burp Suite</span><span>Python</span><span>Wireshark</span></div>
+          <div class="energy-border-trail" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="certifications" aria-labelledby="cert-heading">
+  <div class="container">
+    <div class="section-label scan-reveal">05 / Education & Certifications</div>
+    <h2 id="cert-heading" class="section-heading centered scan-reveal">Credentials & Learning</h2>
+    <div class="edu-certs-grid">
+      <div class="edu-column scan-reveal">
+        <h3 class="col-title">Education</h3>
+        <div class="edu-card energy-card">
+          <div class="edu-icon">◈</div>
+          <div class="edu-info">
+            <h4>B.Tech — Computer Science (AI / ML)</h4>
+            <p class="edu-field">Computer Science · AI & Machine Learning</p>
+            <p class="edu-school">NARULA INSTITUTE OF TECHNOLOGY · Kolkata, India</p>
+            <span class="edu-year">2023 – 2027</span>
+          </div>
+          <div class="energy-border-trail" aria-hidden="true"></div>
+        </div>
+        <div class="edu-card energy-card">
+          <div class="edu-icon">◈</div>
+          <div class="edu-info">
+            <h4>B.Sc — Data Science</h4>
+            <p class="edu-field">Data Science</p>
+            <p class="edu-school">INDIAN INSTITUTE OF TECHNOLOGY MADRAS · Chennai, India</p>
+            <span class="edu-year">2023 – 2027</span>
+          </div>
+          <div class="energy-border-trail" aria-hidden="true"></div>
+        </div>
+        <div class="edu-card energy-card">
+          <div class="edu-icon">◈</div>
+          <div class="edu-info">
+            <h4>B.Sc — Informatics & Computing</h4>
+            <p class="edu-field">Mathematics & Computing</p>
+            <p class="edu-school">INDIAN INSTITUTE OF TECHNOLOGY MADRAS · Chennai, India</p>
+            <span class="edu-year">2023 – 2027</span>
+          </div>
+          <div class="energy-border-trail" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="cert-column scan-reveal">
+        <h3 class="col-title">Certifications</h3>
+        <div class="cert-card energy-card"><div class="cert-info"><h4>Google Professional Data Engineer</h4><p>Google Cloud · 2024</p></div><span class="cert-badge cert-data">Data</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+        <div class="cert-card energy-card"><div class="cert-info"><h4>CompTIA Security+</h4><p>CompTIA · 2024</p></div><span class="cert-badge cert-sec">Security</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+        <div class="cert-card energy-card"><div class="cert-info"><h4>Deep Learning Specialization</h4><p>DeepLearning.AI / Coursera · 2023</p></div><span class="cert-badge cert-ml">ML</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+        <div class="cert-card energy-card"><div class="cert-info"><h4>Machine Learning with Python</h4><p>IBM / Coursera · 2023</p></div><span class="cert-badge cert-ml">ML</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+        <div class="cert-card energy-card"><div class="cert-info"><h4>Certified Ethical Hacker (CEH)</h4><p>EC-Council · In Progress</p></div><span class="cert-badge cert-sec">Security</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+        <div class="cert-card energy-card"><div class="cert-info"><h4>TensorFlow Developer Certificate</h4><p>Google · 2023</p></div><span class="cert-badge cert-ml">ML</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="achievements" aria-labelledby="ach-heading">
+  <div class="container">
+    <div class="section-label scan-reveal">06 / Achievements</div>
+    <h2 id="ach-heading" class="section-heading centered scan-reveal">Notable Highlights</h2>
+    <div class="achievements-grid">
+      <div class="ach-card energy-card scan-reveal"><div class="ach-icon">⬡</div><h3>Hackathon Finalist</h3><p>E-Raksha Hackathon · 2026 Top 3 out of 5,000+ teams for an Agentic AI & Cybersecurity based DeepFake audio and video detector.</p><span class="ach-tag">Competition</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+      <div class="ach-card energy-card scan-reveal"><div class="ach-icon">◈</div><h3>CTF Top Performer</h3><p>Ranked top 3% globally on TryHackMe. Solved 50+ challenges across web, forensics, and cryptography.</p><span class="ach-tag">Security</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+      <div class="ach-card energy-card scan-reveal"><div class="ach-icon">✦</div><h3>Research Publication</h3><p>Co authored "Adversarial Robustness in Network Intrusion Detection" submitted to AAAI Conference on Artificial Intelligence.</p><span class="ach-tag">Research</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+      <div class="ach-card energy-card scan-reveal"><div class="ach-icon">✦</div><h3>Inter IIT Hackathon Winner</h3><p>Won the Inter IIT Hackathon on AI & ML, competing against teams from India's premier technical institutions.</p><span class="ach-tag">Hackathon</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+      <div class="ach-card energy-card scan-reveal"><div class="ach-icon">✦</div><h3>IITM Paradox Winner</h3><p>Won the IITM Paradox Hackathon on Competitive Programming at IIT Madras.</p><span class="ach-tag">Hackathon</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+      <div class="ach-card energy-card scan-reveal"><div class="ach-icon">◻</div><h3>AI Community Author</h3><p>Regular technical contributor on applied AI, data engineering, and cybersecurity. 1,000+ readers across platforms.</p><span class="ach-tag">Editorial</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+      <div class="ach-card energy-card scan-reveal"><div class="ach-icon">⊠</div><h3>Open Source Contributor</h3><p>Merged PRs across 3 open-source security and ML repositories on GitHub, improving documentation and performance.</p><span class="ach-tag">Open Source</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+      <div class="ach-card energy-card scan-reveal"><div class="ach-icon">◉</div><h3>Academic Excellence</h3><p>8.5 GPA across NIT Kolkata and IIT Madras simultaneously, in core CS, ML, and statistics coursework.</p><span class="ach-tag">Academic</span><div class="energy-border-trail" aria-hidden="true"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="testimonials" aria-labelledby="test-heading">
+  <div class="container">
+    <div class="section-label scan-reveal">07 / Testimonials</div>
+    <h2 id="test-heading" class="section-heading centered scan-reveal">What People Say</h2>
+    <div class="testimonials-grid">
+      <blockquote class="testimonial-card energy-card scan-reveal">
+        <p class="testimonial-text">"Great to see your commitment to making ABHEDHYA production ready with YOLO integration. That focus on execution is exactly what turns a good idea into a real solution. Stay consistent with the quality you've shown  pitching it will be a strong experience. Keep building, refining, and believing in your work."</p>
+        <footer class="testimonial-author">
+          <div class="author-avatar"><span>AK</span></div>
+          <div><cite class="author-name">Aditya Kumar Singh</cite><span class="author-role">Founder & CEO · Cre8Techin & AS Music Bros</span></div>
+        </footer>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </blockquote>
+      <blockquote class="testimonial-card energy-card scan-reveal">
+        <p class="testimonial-text">"What stood out was the ability to translate complex model outputs into actionable business decisions. Very few junior data scientists can do this. The dashboards delivered were immediately adopted by the team."</p>
+        <footer class="testimonial-author">
+          <div class="author-avatar"><span>PC</span></div>
+          <div><cite class="author-name">Parth Chopra</cite><span class="author-role">Founder & CEO · ProI</span></div>
+        </footer>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </blockquote>
+      <blockquote class="testimonial-card energy-card scan-reveal">
+        <p class="testimonial-text">"Sharp thinker, fast learner, and meticulous in execution. Our internal tooling is meaningfully better because of the recon framework built during the internship."</p>
+        <footer class="testimonial-author">
+          <div class="author-avatar"><span>SK</span></div>
+          <div><cite class="author-name">Subhanskar Kaur</cite><span class="author-role">Lead Security Engineer · Google</span></div>
+        </footer>
+        <div class="energy-border-trail" aria-hidden="true"></div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="section-label scan-reveal">08 / Contact</div>
+    <div class="contact-inner">
+      <div class="contact-left scan-reveal">
+        <h2 id="contact-heading" class="section-heading">Let's build<br/>something<br/><em>remarkable</em>.</h2>
+        <p class="contact-sub">Open to full time roles, research collaborations, freelance projects, and consulting engagements in Data Science, ML Engineering, and Cybersecurity.</p>
+        <div class="contact-links">
+          <a href="mailto:harshagarwalworkspace@gmail.com" class="contact-link">
+            <span class="contact-link-icon">✉</span><span>harshagarwalworkspace@gmail.com</span>
+          </a>
+          <a href="https://linkedin.com/in/harsh--agarwal2003" target="_blank" class="contact-link">
+            <span class="contact-link-icon">in</span><span>linkedin.com/in/harsh--agarwal2003</span>
+          </a>
+          <a href="https://github.com/theanamolycoder" target="_blank" class="contact-link">
+            <span class="contact-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></span>
+            <span>github.com/theanamolycoder</span>
+          </a>
+          <div class="contact-link no-hover">
+            <span class="contact-link-icon">◎</span><span>Bangalore, India · Available for Remote</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right scan-reveal">
+        <div class="contact-cta-box energy-card">
+          <p class="cta-box-label">Ready to collaborate?</p>
+          <h3 class="cta-box-heading">Drop me a message</h3>
+          <p class="cta-box-sub">I respond to all genuine inquiries within 24 hours.</p>
+          <a href="mailto:harshagarwalworkspace@gmail.com" class="btn btn-primary btn-lg">Send Email</a>
+          <a href="https://docs.google.com/document/d/1MoRke--DYmfC6NjNRnBnD8CcsIOeCrOB/edit?usp=sharing&ouid=101178303394384609336&rtpof=true&sd=true" class="btn btn-ghost btn-lg" download>Download Resume</a>
+          <div class="energy-border-trail" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo"><span class="logo-bracket">[</span>HA<span class="logo-bracket">]</span></span>
+        <p class="footer-tagline">Data · ML · Security · AI</p>
+      </div>
+      <div class="footer-center">
+        <p class="footer-copy">© 2026 Harsh Agarwal. All rights reserved.</p>
+        <p class="footer-sub">Built with precision. Designed with intent.</p>
+      </div>
+      <div class="footer-right">
+        <a href="mailto:harshagarwalworkspace@gmail.com" class="footer-link" aria-label="Email">✉</a>
+        <a href="https://linkedin.com/in/harsh--agarwal2003" target="_blank" class="footer-link" aria-label="LinkedIn">in</a>
+        <a href="https://github.com/theanamolycoder" target="_blank" class="footer-link" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="#contact" class="float-btn" aria-label="Jump to contact section">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
