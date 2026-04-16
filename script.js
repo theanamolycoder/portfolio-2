@@ -32,7 +32,7 @@
         vx: (Math.random() - 0.5) * 0.16,
         vy: (Math.random() - 0.5) * 0.16,
         r: Math.random() * 1.1 + 0.28,
-        baseAlpha: Math.random() * 0.38 + 0.07,
+        baseAlpha: Math.random() * 0.42 + 0.14,
         phase: Math.random() * Math.PI * 2,
         phaseSpeed: 0.007 + Math.random() * 0.011,
       });
@@ -86,7 +86,7 @@
         const d2 = dx * dx + dy * dy;
         if (d2 < MAX_DIST * MAX_DIST) {
           const dist = Math.sqrt(d2);
-          const la = ((1 - dist / MAX_DIST) * 0.082 * pulse).toFixed(3);
+          const la = ((1 - dist / MAX_DIST) * 0.12 * pulse).toFixed(3);
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
@@ -137,7 +137,12 @@
     window.addEventListener('mousemove', (e) => {
       tx = e.clientX; ty = e.clientY;
       mx = e.clientX; my = e.clientY;
+      const speed = Math.hypot(e.movementX, e.movementY);
       if (!cursorActive) { cursorActive = true; tickCursor(); }
+      cursorEl.style.transform = `
+      translate(-50%, -50%)
+      scale(${1 + speed * 0.02})
+      `;
     }, { passive: true });
 
     window.addEventListener('mouseleave', () => { mx = -9999; my = -9999; });
@@ -148,6 +153,7 @@
   const nav = document.getElementById('nav');
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
+  let lastScroll = window.scrollY;
 
   function updateNav() {
     if (!nav) return;
@@ -265,6 +271,7 @@
 
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
+  
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -281,17 +288,36 @@
       });
     });
   });
+  document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
 
-  projectCards.forEach(card => {
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        const link = card.querySelector('a');
-        if (link) { e.preventDefault(); link.click(); }
-      }
-    });
+    const title = card.querySelector('.project-title')?.innerText || '';
+    const desc = card.querySelector('.project-desc')?.innerText || '';
+    const domain = card.querySelector('.project-domain')?.innerText || '';
+    const impact = card.querySelector('.project-impact')?.innerText || '';
+
+    modalContent.innerHTML = `
+      <h3>${title}</h3>
+      <p><strong>${domain}</strong></p>
+      <p>${desc}</p>
+      <p>${impact}</p>
+    `;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
   });
+});
 
-  const heroNameEl = document.getElementById('heroName');
+
+    const heroNameEl = document.getElementById('heroName');
+
+  if (heroNameEl) {
+    setInterval(() => {
+      heroNameEl.style.letterSpacing = `${-0.045 + (Math.random() * 0.02)}em`;
+    }, 1200);
+  }
+
   if (heroNameEl && window.innerWidth > 768) {
     const inner = heroNameEl.querySelector('.hero-name-inner') || heroNameEl;
     let baseCenter = { x: 0, y: 0 };
@@ -314,7 +340,7 @@
     function tickMag() {
       magCx += (magTx - magCx) * 0.08;
       magCy += (magTy - magCy) * 0.08;
-      inner.style.transform = `translate(${magCx.toFixed(2)}px,${magCy.toFixed(2)}px)`;
+      inner.style.transform = `translate(${magCx.toFixed(2)}px, ${magCy.toFixed(2)}px)`;
       magRaf = requestAnimationFrame(tickMag);
     }
 
@@ -333,21 +359,88 @@
     }, { passive: true });
   }
 
+  window.addEventListener('scroll', () => {
+    const scrollVelocity = Math.abs(window.scrollY - lastScroll);
+    lastScroll = window.scrollY;
+
+    nodes.forEach(p => {
+      p.vx += (Math.random() - 0.5) * scrollVelocity * 0.002;
+      p.vy += (Math.random() - 0.5) * scrollVelocity * 0.002;
+    });
+  }, { passive: true });
+
   navLinks.forEach(link => {
-    link.addEventListener('mouseenter', function () { this.style.letterSpacing = '.05em'; });
-    link.addEventListener('mouseleave', function () { this.style.letterSpacing = ''; });
+    link.addEventListener('mouseenter', function () {
+      this.style.letterSpacing = '.05em';
+    });
+    link.addEventListener('mouseleave', function () {
+      this.style.letterSpacing = '';
+    });
   });
 
   document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('mousedown', () => { btn.style.transform = 'scale(.97)'; });
+    btn.addEventListener('mousedown', () => {
+      btn.style.transform = 'scale(.97)';
+    });
     ['mouseup', 'mouseleave'].forEach(ev => {
-      btn.addEventListener(ev, () => { btn.style.transform = ''; });
+      btn.addEventListener(ev, () => {
+        btn.style.transform = '';
+      });
     });
   });
 
   document.querySelectorAll('.contact-link:not(.no-hover)').forEach(link => {
-    link.addEventListener('mouseenter', () => { link.style.paddingLeft = 'calc(var(--s4) + 4px)'; });
-    link.addEventListener('mouseleave', () => { link.style.paddingLeft = ''; });
+    link.addEventListener('mouseenter', () => {
+      link.style.paddingLeft = 'calc(var(--s4) + 4px)';
+    });
+    link.addEventListener('mouseleave', () => {
+      link.style.paddingLeft = '';
+    });
   });
 
-})();
+  document.querySelectorAll('.energy-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      card.style.transform = `
+        perspective(900px)
+        rotateX(${y * -6}deg)
+        rotateY(${x * 8}deg)
+      `;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
+    });
+  });
+
+  window.addEventListener('click', (e) => {
+    nodes.forEach(p => {
+      const dx = p.x - e.clientX;
+      const dy = p.y - e.clientY;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+
+      const force = 4 / dist;
+      p.vx += dx * force;
+      p.vy += dy * force;
+    });
+  });
+  const modal = document.getElementById('projectModal');
+const modalContent = document.getElementById('modalContent');
+const modalClose = document.getElementById('modalClose');
+
+modalClose.addEventListener('click', closeModal);
+modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+
+function closeModal(){
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+}());
