@@ -51,7 +51,7 @@
     ctx.clearRect(0, 0, W, H);
 
     const isDark = html.getAttribute('data-theme') !== 'light';
-    const cr = isDark ? '75,163,203' : '46,122,171';
+    const cr = isDark ? '74,124,200' : '46,104,176';
 
     for (let i = 0; i < nodes.length; i++) {
       const p = nodes[i];
@@ -135,14 +135,13 @@
     }
 
     window.addEventListener('mousemove', (e) => {
-      tx = e.clientX; ty = e.clientY;
-      mx = e.clientX; my = e.clientY;
+      tx = e.clientX;
+      ty = e.clientY;
+      mx = e.clientX;
+      my = e.clientY;
       const speed = Math.hypot(e.movementX, e.movementY);
       if (!cursorActive) { cursorActive = true; tickCursor(); }
-      cursorEl.style.transform = `
-      translate(-50%, -50%)
-      scale(${1 + speed * 0.02})
-      `;
+      cursorEl.style.transform = `translate(-50%, -50%) scale(${1 + speed * 0.02})`;
     }, { passive: true });
 
     window.addEventListener('mouseleave', () => { mx = -9999; my = -9999; });
@@ -167,8 +166,34 @@
     });
   }
 
+  const sceneLight = document.getElementById('sceneLight');
+  const sceneSections = document.querySelectorAll('[data-scene]');
+
+  const sceneObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const scene = entry.target.getAttribute('data-scene');
+      if (scene) document.body.dataset.scene = scene;
+    });
+  }, {
+    threshold: 0.35,
+    rootMargin: '-10% 0px -55% 0px'
+  });
+  sceneSections.forEach(section => sceneObserver.observe(section));
+
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
+
+  const progressBar = document.querySelector('#pageProgress span');
+
+  function updateProgress() {
+    if (!progressBar) return;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+    progressBar.style.width = `${pct}%`;
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
 
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -197,20 +222,20 @@
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 78, behavior: 'smooth' });
+        const navH = nav ? nav.offsetHeight : 68;
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH - 8, behavior: 'smooth' });
       }
     });
   });
 
-  const heroEl = document.querySelectorAll('.hero-content .scan-reveal');
-  heroEl.forEach((el, i) => {
+  const heroRevealEls = document.querySelectorAll('.hero-content .scan-reveal');
+  heroRevealEls.forEach((el, i) => {
     setTimeout(() => { el.classList.add('revealed'); }, 180 + i * 120);
   });
 
   const scanEls = document.querySelectorAll('.scan-reveal');
   const alreadyRevealed = new Set();
-
-  heroEl.forEach(el => alreadyRevealed.add(el));
+  heroRevealEls.forEach(el => alreadyRevealed.add(el));
 
   const scanObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -271,7 +296,6 @@
 
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
-  
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -288,29 +312,75 @@
       });
     });
   });
-  document.querySelectorAll('.project-card').forEach(card => {
-  card.addEventListener('click', (e) => {
-    if (e.target.closest('a')) return;
 
-    const title = card.querySelector('.project-title')?.innerText || '';
-    const desc = card.querySelector('.project-desc')?.innerText || '';
-    const domain = card.querySelector('.project-domain')?.innerText || '';
-    const impact = card.querySelector('.project-impact')?.innerText || '';
+  const modal = document.getElementById('projectModal');
+  const modalContent = document.getElementById('modalContent');
+  const modalClose = document.getElementById('modalClose');
+  const modalBackdrop = modal ? modal.querySelector('.modal-backdrop') : null;
 
-    modalContent.innerHTML = `
-      <h3>${title}</h3>
-      <p><strong>${domain}</strong></p>
-      <p>${desc}</p>
-      <p>${impact}</p>
-    `;
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
 
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+  if (modal && modalContent && modalClose && modalBackdrop) {
+    projectCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+
+        const title = card.querySelector('.project-title')?.innerText || '';
+        const desc = card.querySelector('.project-desc')?.innerText || '';
+        const domain = card.querySelector('.project-domain')?.innerText || '';
+        const impact = card.querySelector('.project-impact')?.innerText || '';
+        const stack = Array.from(card.querySelectorAll('.project-stack span'))
+          .map(s => s.innerText)
+          .join(' · ');
+
+        modalContent.innerHTML = `
+          <div class="modal-kicker">${domain}</div>
+          <h3>${title}</h3>
+          <div class="modal-tabs">
+            <button class="modal-tab active" data-tab="overview">Overview</button>
+            <button class="modal-tab" data-tab="stack">Tech Stack</button>
+            <button class="modal-tab" data-tab="result">Result</button>
+          </div>
+          <div class="modal-panel active" data-panel="overview">
+            <p>${desc}</p>
+          </div>
+          <div class="modal-panel" data-panel="stack">
+            <p>${stack}</p>
+          </div>
+          <div class="modal-panel" data-panel="result">
+            <p>${impact}</p>
+          </div>
+        `;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        modalContent.querySelectorAll('.modal-tab').forEach(tab => {
+          tab.addEventListener('click', () => {
+            const target = tab.getAttribute('data-tab');
+            modalContent.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+            modalContent.querySelectorAll('.modal-panel').forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            const panel = modalContent.querySelector(`[data-panel="${target}"]`);
+            if (panel) panel.classList.add('active');
+          });
+        });
+      });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', closeModal);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
   });
-});
 
-
-    const heroNameEl = document.getElementById('heroName');
+  const heroNameEl = document.getElementById('heroName');
 
   if (heroNameEl) {
     setInterval(() => {
@@ -319,7 +389,7 @@
   }
 
   if (heroNameEl && window.innerWidth > 768) {
-    const inner = heroNameEl.querySelector('.hero-name-inner') || heroNameEl;
+    const inner = heroNameEl;
     let baseCenter = { x: 0, y: 0 };
 
     function captureCenter() {
@@ -354,15 +424,13 @@
       if (!magRaf) tickMag();
     }, { passive: true });
 
-    window.addEventListener('scroll', () => {
-      captureCenter();
-    }, { passive: true });
+    window.addEventListener('scroll', captureCenter, { passive: true });
   }
 
   window.addEventListener('scroll', () => {
+    if (!nodes.length) return;
     const scrollVelocity = Math.abs(window.scrollY - lastScroll);
     lastScroll = window.scrollY;
-
     nodes.forEach(p => {
       p.vx += (Math.random() - 0.5) * scrollVelocity * 0.002;
       p.vy += (Math.random() - 0.5) * scrollVelocity * 0.002;
@@ -403,44 +471,23 @@
       const rect = card.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-      card.style.transform = `
-        perspective(900px)
-        rotateX(${y * -6}deg)
-        rotateY(${x * 8}deg)
-      `;
+      card.style.transform = `perspective(900px) rotateX(${y * -6}deg) rotateY(${x * 8}deg)`;
     });
-
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
     });
   });
 
   window.addEventListener('click', (e) => {
+    if (!nodes.length) return;
     nodes.forEach(p => {
       const dx = p.x - e.clientX;
       const dy = p.y - e.clientY;
       const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-
       const force = 4 / dist;
       p.vx += dx * force;
       p.vy += dy * force;
     });
   });
-  const modal = document.getElementById('projectModal');
-const modalContent = document.getElementById('modalContent');
-const modalClose = document.getElementById('modalClose');
-
-modalClose.addEventListener('click', closeModal);
-modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
-
-function closeModal(){
-  modal.classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
-});
 
 }());
